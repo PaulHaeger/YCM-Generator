@@ -12,11 +12,9 @@ It is reasonably fast, taking ~10 seconds to generate a configuration file for t
 This plugin is in maintenance mode. I am happy to merge PRs and triage bug reports, but am not actively working on it.
 
 ## Installation
-Add ```NeoBundle 'rdnetto/YCM-Generator'``` to your vimrc (or the equivalent for your plugin manager).
+Add ```NeoBundle 'PaulHaeger/YCM-Generator'``` to your vimrc (or the equivalent for your plugin manager).
 
-For [vim-plug](https://github.com/junegunn/vim-plug) users, add ```Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}``` to your vimrc.
-
-Alternatively, Arch Linux users can install YCM-Generator using the (unofficial) [AUR package](https://aur4.archlinux.org/packages/ycm-generator-git/).
+For [vim-plug](https://github.com/junegunn/vim-plug) users, add ```Plug 'PaulHaeger/YCM-Generator', { 'branch': 'stable'}``` to your vimrc.
 
 ## Usage
 Run ```./config_gen.py PROJECT_DIRECTORY```, where ```PROJECT_DIRECTORY``` is the root directory of your project's build system (i.e. the one containing the root Makefile, etc.)
@@ -25,7 +23,7 @@ You can also invoke it from within Vim using the ```:YcmGenerateConfig``` or ```
 
 ## Requirements and Limitations
 * Requirements:
-    + Python 2
+    + Python 3
     + Clang
 
 * Supported build systems:
@@ -69,4 +67,3 @@ The following projects are used for testing:
 
 ## License
 YCM-Generator is published under the GNU GPLv3.
-
