@@ -394,7 +394,7 @@ def parse_flags(build_log):
 
             # include arguments for this option, if there are any, as a tuple
             if(i != len(words) - 1 and word in filename_flags and words[i + 1][0] != '-'):
-                flags.add((word, words[i + 1]))
+                flags.add(" ".join((word, words[i + 1])))
             else:
                 flags.add(word)
 
@@ -409,13 +409,13 @@ def parse_flags(build_log):
 
         flags.add(max(word_flags))
 
-    # Resolve duplicate macro definitions (always choose the last value for consistency)
+# Resolve duplicate macro definitions (always choose the last value for consistency)
     for name, values in define_flags.items():
         if(len(values) > 1):
-            print("WARNING: {} distinct definitions of macro {} found".format(len(values), name))
+            print(f"WARNING: {len(values)} distinct definitions of macro {name} found")
             values.sort()
 
-        flags.add("-D{}={}".format(name, values[0]))
+        flags.add(f"-D{name}={values[0]}")
 
     return (line_count, skip_count, sorted(flags))
 
@@ -430,7 +430,7 @@ def generate_cc_conf(flags, config_file):
         for flag in flags:
             if(isinstance(flag, str)):
                 output.write(flag + "\n")
-            else: # is tuple
+            else:  # is tuple
                 for f in flag:
                     output.write(f + "\n")
 
